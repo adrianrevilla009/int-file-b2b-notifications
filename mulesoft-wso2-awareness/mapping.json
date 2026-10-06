@@ -1,0 +1,22 @@
+{
+  "sftp polling": {
+    "camel": "from(\"sftp:...\") consumer",
+    "mulesoft": "SFTP Connector: On New or Updated File (listener) with watermark",
+    "wso2": "WSO2 Micro Integrator: VFS inbound endpoint (transport.vfs.*) on an sftp:// URL"
+  },
+  "idempotent handling": {
+    "camel": "idempotentConsumer(key, repository)",
+    "mulesoft": "Idempotent Message Validator with an Object Store",
+    "wso2": "Mediation sequence with a Cache/DataService lookup on a message key (no built-in idempotent EIP)"
+  },
+  "edi parsing": {
+    "camel": "Hand-rolled parser or an EDI data format",
+    "mulesoft": "EDI Module (X12/EDIFACT) with DataWeave transforms",
+    "wso2": "Smooks mediator or a Ballerina EDI tool, mapped with the Data Mapper"
+  },
+  "channel fallback": {
+    "camel": "Dead-letter channel / onException with a next-endpoint route",
+    "mulesoft": "Try scope with On Error Continue, then a flow-ref to the next channel",
+    "wso2": "Fault sequence plus a failover endpoint (failover group)"
+  }
+}

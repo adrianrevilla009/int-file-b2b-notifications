@@ -1,0 +1,22 @@
+{
+  "sftp polling": {
+    "camel": "from(\"sftp:...\") consumer",
+    "boomi": "SFTP connector Get operation inside a scheduled process (or listener)",
+    "logic_apps": "SFTP-SSH trigger: When a file is added or modified"
+  },
+  "idempotent handling": {
+    "camel": "idempotentConsumer(key, repository)",
+    "boomi": "Find Changes / Document Cache lookup or process property keyed on the file name",
+    "logic_apps": "Trigger concurrency plus a table or blob lookup on a key; the trigger tracks only last-modified"
+  },
+  "edi parsing": {
+    "camel": "Hand-rolled parser or an EDI data format",
+    "boomi": "EDI profile (X12/EDIFACT) with a Map shape",
+    "logic_apps": "Integration Account with X12/EDIFACT Decode actions"
+  },
+  "channel fallback": {
+    "camel": "Dead-letter channel / onException with a next-endpoint route",
+    "boomi": "Try/Catch shape that routes to the next connector branch",
+    "logic_apps": "Scope with 'run after' failed, then the next channel action"
+  }
+}
